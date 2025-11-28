@@ -34,15 +34,32 @@ Les conteneurs Docker n'ont pas d'écran. Pour voir la fenêtre Pygame, nous dev
     *   Cliquez sur Suivant, puis sur **Finish**.
     *   *Note : Vous devriez voir une icône "X" apparaître dans votre barre des tâches (zone de notification).*
 
-## 4. Lancer le Projet dans le Dev Container
+## 4. Récupération du Projet
 
-1.  Ouvrez ce dossier (`python-dev-env`) dans **VS Code**.
+Si vous souhaitez utiliser ce projet comme base pour le vôtre, vous pouvez le cloner puis détacher l'historique Git pour repartir de zéro.
+
+1.  Ouvrez un terminal (PowerShell ou Git Bash).
+2.  Clonez le dépôt :
+    ```bash
+    git clone https://github.com/e-baloo/docker-python-dev-env.git
+    ```
+3.  Entrez dans le dossier :
+    ```bash
+    cd docker-python-dev-env
+    ```
+4.  Supprimez le dossier `.git` pour effacer l'historique et délier le projet du dépôt d'origine :
+    *   **PowerShell** : `Remove-Item -Recurse -Force .git`
+    *   **Bash** : `rm -rf .git`
+
+## 5. Lancer le Projet dans le Dev Container
+
+1.  Ouvrez ce dossier (`python-dev-env` ou `docker-python-dev-env`) dans **VS Code**.
 2.  Assurez-vous d'avoir l'extension **Dev Containers** installée dans VS Code (Microsoft).
 3.  Une notification devrait apparaître en bas à droite : *"Folder contains a Dev Container configuration file. Reopen folder to develop in a container"*. Cliquez sur **Reopen in Container**.
     *   *Alternative :* Appuyez sur `F1` (ou `Ctrl+Shift+P`), tapez `Dev Containers: Reopen in Container` et sélectionnez-le.
 4.  Attendez que VS Code construise l'image Docker (cela peut prendre quelques minutes la première fois).
 
-## 5. Exécuter l'Exemple Pygame
+## 6. Exécuter l'Exemple Pygame
 
 Une fois le conteneur lancé (vous verrez "Dev Container: Python..." en bas à gauche de VS Code) :
 
