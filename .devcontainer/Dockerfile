@@ -19,3 +19,12 @@ WORKDIR /workspace
 # Install Python dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
+
+# Configure bash prompt with colors and git branch
+RUN echo 'parse_git_branch() {' >> /root/.bashrc && \
+    printf "%s\n" '    git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/^\* \(.*\)/ (\1)/"' >> /root/.bashrc && \
+    echo '}' >> /root/.bashrc && \
+    echo 'export PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;33m\]\$(parse_git_branch)\[\033[00m\]\$ "' >> /root/.bashrc && \
+    echo "alias ls='ls --color=auto'" >> /root/.bashrc && \
+    echo "alias ll='ls -l --color=auto'" >> /root/.bashrc
+
